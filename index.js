@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const loginRoute = require('./routes/account/login');
 const resgisterRoute = require('./routes/account/resgister');
 const logoutRoute = require('./routes/account/logout');
-const headlineRoute = require('./routes/user/headline');
+const headlineRoute = require('./routes/user/profile');
 const articlesRoute = require('./routes/articles/articles')
 const testprotectedRoute = require('./routes/test/protected')
 

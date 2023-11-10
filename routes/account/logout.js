@@ -18,8 +18,8 @@ router.put('/', async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    user.token = ''; // 设置用户的token字段为空
-    await user.save(); // 保存用户模型到数据库
+    user.token = ''; 
+    await user.save();
 
     res.status(200).json({ message: 'Logout successful' });
   } catch (error) {

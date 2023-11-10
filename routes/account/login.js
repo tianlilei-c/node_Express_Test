@@ -6,8 +6,8 @@ const User = require('../../models/user');
 
 router.post('/', async (req, res) => {
   try {
-    const { name, password } = req.body;
-    const user = await User.findOne({ name });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ error: 'Invalid username or password' });
     }
