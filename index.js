@@ -6,7 +6,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const loginRoute = require('./routes/account/login');
-const resgisterRoute = require('./routes/account/resgister');
+const registerRoute = require('./routes/account/register');
 const logoutRoute = require('./routes/account/logout');
 const headlineRoute = require('./routes/user/profile');
 const articlesRoute = require('./routes/articles/articles')
@@ -18,17 +18,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //test middlewares verifyToken
 app.use('/protected', verifyToken, testprotectedRoute);
 app.use('/login', loginRoute);
-app.use('/resgister', resgisterRoute);
-app.use('/logout', verifyToken,logoutRoute);
-app.use('/headline',mockMiddles, headlineRoute);
-app.use('/articles',mockMiddles, articlesRoute);
-app.use('/',mockMiddles,stubsApi)
+app.use('/register', registerRoute);
+app.use('/logout', mockMiddles, logoutRoute);
+app.use('/headline', mockMiddles, headlineRoute);
+app.use('/articles', mockMiddles, articlesRoute);
+app.use('/', mockMiddles, stubsApi)
 
-
-mongoose.connect('mongodb://localhost/node6', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+/*, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }  */
+mongoose.connect('mongodb://localhost/node6')
   .then(() => {
     console.log('MongoDB connected');
   })
@@ -41,3 +41,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;

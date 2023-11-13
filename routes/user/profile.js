@@ -26,7 +26,7 @@ router.put('/', async (req, res) => {
       await userProfile.save()
     res.status(200).json({ message: 'update successful', userProfile  });
     } else {
-      res.status(500).json({ error: error.message, msg: "error user" });
+      res.status(500).json({ msg: "error user" });
     }
   } catch (error) {
     res.status(500).json({ error: error.message, msg: "update error" });
