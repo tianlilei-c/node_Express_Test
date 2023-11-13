@@ -29,7 +29,6 @@ router.post('/', async (req, res) => {
     });
     await profile.save();
     res.status(201).json({ message: 'User created successfully' });
-
   } catch (error) {
     res.status(500).json({ error: error.message});
   }
