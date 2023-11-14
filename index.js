@@ -24,17 +24,17 @@ app.use('/headline', mockMiddles, headlineRoute);
 app.use('/articles', mockMiddles, articlesRoute);
 app.use('/', mockMiddles, stubsApi)
 
-/*, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }  */
-mongoose.connect('mongodb://localhost/node6')
-  .then(() => {
-    console.log('MongoDB connected');
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
-  });
+  const password = encodeURIComponent('886xK31111MongoDb');
+  const connectionString = `mongodb+srv://xk614283:${password}@expressmongodb.yewyjq9.mongodb.net/?retryWrites=true&w=majority`;
+  
+  mongoose.connect(connectionString)
+    .then(() => {
+      console.log('MongoDB connected');
+    })
+    .catch((error) => {
+      console.error('MongoDB connection error:', error);
+    });
+  
 
 
 const PORT = process.env.PORT || 3000;
